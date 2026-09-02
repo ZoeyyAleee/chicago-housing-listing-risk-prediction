@@ -1,53 +1,60 @@
-<<<<<<< HEAD
-# listing-risk-prediction
-=======
+# Chicago Housing Listing Risk Prediction
 
-# House Price Prediction (Beginner Machine Learning Project)
+A machine-learning project that predicts monthly listing risk in the Chicago housing market using historical Redfin data.
 
-## Project Overview
-This project is a beginner-friendly machine learning project that predicts house prices based on various features such as location, size, quality, and year built.
+## Project Goal
 
-The goal of this project is to understand the **end-to-end machine learning workflow**, including:
-- Loading and exploring data
-- Cleaning and preprocessing data
-- Building a simple predictive model
-- Evaluating model performance
+The project estimates when market conditions may be more difficult for sellers. Listing risk is represented by:
 
-This project uses the **Kaggle House Prices dataset**.
-
----
+- Price drops
+- Median days on market
+- Months of supply
 
 ## Dataset
-- Source: Kaggle – House Prices: Advanced Regression Techniques
-- File used: `train.csv`
-- Number of records: ~1,460 houses
-- Target variable: `SalePrice`
 
----
+The source data is Redfin Metro Market Tracker data for the Chicago, IL metro area.
 
-## Tools & Technologies
-- Python
-- Jupyter Notebook
-- Pandas
-- NumPy
-- Scikit-learn
-- Matplotlib / Seaborn
+- Raw data: 561,266 records across U.S. locations
+- Chicago monthly records: 168
+- Final engineered dataset: 155 monthly records from February 2013 to December 2025
 
----
+## Workflow
 
-## Project Structure
-listing risk prediction/
-- data/
-  - raw/
-  - processed/
-- notebooks/
-- powerbi/
-- sql/
-- paper/
-- README.md
+1. Data preparation and cleaning
+2. Exploratory data analysis
+3. Time-series feature engineering
+4. Model training
+5. Model evaluation
+6. Historical prediction and visualization
 
+## Models
 
-## Status
-This project is currently in progress.
+- Linear Regression
+- Random Forest Regressor
+- Logistic Regression
+- Random Forest Classifier
 
->>>>>>> da098c37cffe2f66eec9273c260f0272a81d18ca
+The final risk-score model is Linear Regression because it performed best on unseen test months.
+
+## Results
+
+On the unseen test period, Linear Regression achieved:
+
+- R²: 0.2362
+- RMSE: 0.2212
+- MAE: 0.1826
+
+The classification results are exploratory because the final test period contained only low-risk months.
+
+## Limitations
+
+- Small dataset: one metro area with 155 usable monthly observations
+- No external economic features, such as mortgage rates or unemployment
+- The classification model could not be fully evaluated on unseen high-risk months
+
+## Future Improvements
+
+- Add mortgage rates, unemployment, inflation, and other economic indicators
+- Expand the project to multiple metro areas
+- Use time-series cross-validation
+- Build an interactive dashboard

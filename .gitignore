@@ -205,11 +205,12 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
-<<<<<<< HEAD
-data/
+# Project data and generated local files
+data/raw/
+notebooks/redfin_metro_market_tracker.tsv
+*.db
 *.gz
 *.zip
 .DS_Store
-=======
->>>>>>> da098c37cffe2f66eec9273c260f0272a81d18ca
 .idea/
+
