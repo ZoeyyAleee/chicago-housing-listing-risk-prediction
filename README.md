@@ -58,3 +58,59 @@ The classification results are exploratory because the final test period contain
 - Expand the project to multiple metro areas
 - Use time-series cross-validation
 - Build an interactive dashboard
+
+## FastAPI Application
+
+This project includes a local FastAPI application that returns a listing-risk prediction using the saved Linear Regression model and the latest engineered Chicago market data.
+
+### Run the API locally
+
+Create and activate a Python 3.12 virtual environment:
+
+```bash
+python3.12 -m venv .venv
+source .venv/bin/activate
+```
+
+Install the required packages:
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+Start the API:
+
+```bash
+uvicorn app.main:app --reload
+```
+
+The API runs locally at:
+
+```text
+http://127.0.0.1:8000
+```
+
+### API Endpoints
+
+| Method | Endpoint          | Description                                 |
+| ------ | ----------------- | ------------------------------------------- |
+| `GET`  | `/health`         | Confirms that the API is running.           |
+| `GET`  | `/predict/latest` | Returns the latest listing-risk prediction. |
+
+### Interactive API Documentation
+
+After starting the server, open:
+
+```text
+http://127.0.0.1:8000/docs
+```
+
+### Application Structure
+
+```text
+app/
+├── main.py                       # FastAPI app and API routes
+├── schemas.py                    # API response format
+└── services/
+    └── prediction_service.py     # Model loading and prediction logic
+```
